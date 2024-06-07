@@ -1,13 +1,22 @@
-<app-header> </app-header>
+<div
+    *ngIf="loading; else content"
+    class="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-80 text-primary"
+>
+    <span class="loading loading-dots w-24"></span>
+</div>
 
-<main class="min-h-dvh pt-20">
-    <!-- <button class="btn btn-primary">primary</button>
-    <button class="btn btn-secondary">secondary</button>
-    <button class="btn btn-accent">accent</button>
-    <button class="btn btn-neutral">neutral</button>
-    <button class="btn bg-base-200">base-200</button>
-    <button class="btn bg-base-300">base-300</button> -->
-    <router-outlet> </router-outlet>
-</main>
+<ng-template #content>
+    <app-header> </app-header>
 
-<app-footer> </app-footer>
+    <main class="min-h-dvh pt-20">
+        <!-- <button class="btn btn-primary">primary</button>
+        <button class="btn btn-secondary">secondary</button>
+        <button class="btn btn-accent">accent</button>
+        <button class="btn btn-neutral">neutral</button>
+        <button class="btn bg-base-200">base-200</button>
+        <button class="btn bg-base-300">base-300</button> -->
+        <router-outlet> </router-outlet>
+    </main>
+
+    <app-footer> </app-footer>
+</ng-template>

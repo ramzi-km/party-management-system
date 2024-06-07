@@ -40,32 +40,42 @@
                 class="space-y-4 md:space-y-6"
             >
                 <div>
-                    <label for="email" class="mb-2 block text-sm font-medium"
-                        >Your email</label
+                    <label for="username" class="mb-2 block text-sm font-medium"
+                        >Username</label
                     >
                     <input
-                        type="email"
-                        name="email"
-                        id="email"
+                        type="text"
+                        name="username"
+                        id="username"
                         class="block w-full rounded-lg border border-primary bg-base-100 p-2.5 focus:border-primary focus:ring-primary sm:text-sm"
-                        placeholder="name@company.com"
-                        formControlName="email"
+                        placeholder="johndoe"
+                        formControlName="username"
                     />
                     <div
                         class="pt-1 text-sm text-red-500"
                         *ngIf="
-                            (loginFormControls['email'].touched || submitted) &&
-                            loginFormControls['email'].invalid
+                            (loginFormControls['username'].touched ||
+                                submitted) &&
+                            loginFormControls['username'].invalid
                         "
                     >
                         <label
                             *ngIf="
-                                loginFormControls['email'].errors?.['required']
+                                loginFormControls['username'].errors?.[
+                                    'required'
+                                ]
                             "
-                            >email is required </label
+                            >username is required </label
                         ><label
-                            *ngIf="loginFormControls['email'].errors?.['email']"
-                            >not a valid email</label
+                            *ngIf="
+                                loginFormControls['username'].errors?.[
+                                    'noWhitespace'
+                                ] &&
+                                !loginFormControls['username'].errors?.[
+                                    'required'
+                                ]
+                            "
+                            >username should not be empty</label
                         >
                     </div>
                 </div>

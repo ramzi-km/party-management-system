@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core'
 })
 export class AppComponent implements OnInit {
     theme = 'light'
+
+    loading = false
     ngOnInit(): void {
         const localStorageTheme = localStorage.getItem('theme')
         if (localStorageTheme) {
