@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-list-parties',
-  templateUrl: './list-parties.component.html',
-  styleUrls: ['./list-parties.component.scss']
+    selector: 'app-list-parties',
+    templateUrl: './list-parties.component.html',
+    styleUrls: ['./list-parties.component.scss'],
 })
-export class ListPartiesComponent {
-
-}
+export class ListPartiesComponent {}

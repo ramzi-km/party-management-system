@@ -6,6 +6,7 @@ import { HeaderComponent } from './components/header/header.component'
 import { FooterComponent } from './components/footer/footer.component'
 import { NgIconsModule } from '@ng-icons/core'
 import { remixLogoutBoxLine } from '@ng-icons/remixicon'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
     declarations: [HeaderComponent, FooterComponent],
@@ -15,6 +16,11 @@ import { remixLogoutBoxLine } from '@ng-icons/remixicon'
         NgIconsModule.withIcons({ remixLogoutBoxLine }),
         ToastrModule.forRoot(),
     ],
-    exports: [HeaderComponent, FooterComponent],
+    exports: [
+        HeaderComponent,
+        FooterComponent,
+        ReactiveFormsModule,
+        FormsModule,
+    ],
 })
 export class CoreModule {}

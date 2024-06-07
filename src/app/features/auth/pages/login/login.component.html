@@ -1,1 +1,131 @@
-<p>login works!</p>
+<!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
+<section
+    class="mx-auto -mt-10 flex h-svh flex-col items-center justify-center px-6 py-8 lg:py-0"
+>
+    <div
+        class="w-full rounded-lg bg-base-200 text-base-content shadow sm:max-w-md md:mt-0 xl:p-0"
+    >
+        <div class="space-y-4 p-6 sm:p-8 md:space-y-6">
+            <h1
+                class="text-xl font-bold leading-tight tracking-tight md:text-2xl"
+            >
+                Login to your account
+            </h1>
+            <div *ngIf="errMessage" class="alert alert-error relative my-2">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    class="h-6 w-6 shrink-0 stroke-current"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                </svg>
+                <span>{{ errMessage }}</span>
+                <button
+                    type="button"
+                    class="absolute right-2.5 top-2.5 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-300 hover:bg-gray-200 hover:text-gray-900"
+                    (click)="errMessage = ''"
+                >
+                    <ng-icon class="text-lg" name="remixCloseLine"></ng-icon>
+                </button>
+            </div>
+            <form
+                [formGroup]="loginForm"
+                (ngSubmit)="submitForm()"
+                class="space-y-4 md:space-y-6"
+            >
+                <div>
+                    <label for="email" class="mb-2 block text-sm font-medium"
+                        >Your email</label
+                    >
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        class="block w-full rounded-lg border border-primary bg-base-100 p-2.5 focus:border-primary focus:ring-primary sm:text-sm"
+                        placeholder="name@company.com"
+                        formControlName="email"
+                    />
+                    <div
+                        class="pt-1 text-sm text-red-500"
+                        *ngIf="
+                            (loginFormControls['email'].touched || submitted) &&
+                            loginFormControls['email'].invalid
+                        "
+                    >
+                        <label
+                            *ngIf="
+                                loginFormControls['email'].errors?.['required']
+                            "
+                            >email is required </label
+                        ><label
+                            *ngIf="loginFormControls['email'].errors?.['email']"
+                            >not a valid email</label
+                        >
+                    </div>
+                </div>
+                <div>
+                    <label for="password" class="mb-2 block text-sm font-medium"
+                        >Password</label
+                    >
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="••••••••"
+                        class="block w-full rounded-lg border border-primary bg-base-100 p-2.5 focus:border-primary focus:ring-primary sm:text-sm"
+                        formControlName="password"
+                    />
+                    <div
+                        class="pt-1 text-sm text-red-500"
+                        *ngIf="
+                            (loginFormControls['password'].touched ||
+                                submitted) &&
+                            loginFormControls['password'].invalid
+                        "
+                    >
+                        <label
+                            *ngIf="
+                                loginFormControls['password'].errors?.[
+                                    'required'
+                                ]
+                            "
+                            >password is required </label
+                        ><label
+                            *ngIf="
+                                loginFormControls['password'].errors?.[
+                                    'noSpaceValidator'
+                                ]
+                            "
+                            >password will not contain spaces</label
+                        >
+                        <label
+                            *ngIf="
+                                loginFormControls['password'].errors?.[
+                                    'minlength'
+                                ] &&
+                                !loginFormControls['password'].errors?.[
+                                    'noSpaceValidator'
+                                ]
+                            "
+                            >password will contain atleast 6 characters</label
+                        >
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-full">
+                    Login
+                    <span
+                        *ngIf="loading"
+                        class="text-textp loading loading-spinner loading-sm mb-1 ml-5"
+                    ></span>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
