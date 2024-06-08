@@ -5,7 +5,7 @@ export const noWhitespaceValidator: ValidatorFn = (
 ): ValidationErrors | null => {
     const trimmedValue = control.value.trim()
     if (trimmedValue === '') {
-        return { noWhitespace: true }
+        return { noWhitespaceValidator: true }
     }
     return null
 }

@@ -1,11 +1,7 @@
 import { noSpaceValidator } from './../../../../shared/validators/no-space.validator'
 import { noWhitespaceValidator } from './../../../../shared/validators/no-whitespace.validator'
 import { Component, OnDestroy, OnInit } from '@angular/core'
-import {
-    FormControl,
-    FormGroup,
-    Validators,
-} from '@angular/forms'
+import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Subject, takeUntil } from 'rxjs'
 import { AuthApiService } from '../../services/auth-api/auth-api.service'
 import { AuthStateService } from './../../../../core/services/auth-state/auth-state.service'
@@ -17,11 +13,23 @@ import { Router } from '@angular/router'
     styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnDestroy, OnInit {
+
     private ngUnsubscribe = new Subject<void>()
+
     loginForm!: FormGroup
     errMessage: string | null = null
     loading = false
-    submitted = false
+    validationMessages = {
+        username: {
+            required: 'Username is required',
+            noWhitespaceValidator: 'Username should not be empty spaces',
+        },
+        password: {
+            required: 'Password is required',
+            noSpaceValidator: 'Password will not contain spaces',
+            minlength: 'Password will contain atleast 6 characters',
+        },
+    }
 
     constructor(
         private authApiService: AuthApiService,
@@ -37,8 +45,8 @@ export class LoginComponent implements OnDestroy, OnInit {
             ]),
             password: new FormControl('', [
                 Validators.required,
-                Validators.minLength(6),
                 noSpaceValidator,
+                Validators.minLength(6),
             ]),
         })
     }
@@ -48,7 +56,6 @@ export class LoginComponent implements OnDestroy, OnInit {
     }
 
     submitForm() {
-        this.submitted = true
         if (this.loginForm.invalid || this.loading) {
             return
         }

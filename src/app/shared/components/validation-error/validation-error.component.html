@@ -1,0 +1,9 @@
+<ng-container
+    *ngIf="
+        control?.errors &&
+        validationMessages &&
+        (control?.touched || formDirective.submitted)
+    "
+>
+    {{ validationMessages! | validation: control?.errors! }}
+</ng-container>

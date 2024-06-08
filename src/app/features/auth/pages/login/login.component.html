@@ -51,33 +51,12 @@
                         placeholder="johndoe"
                         formControlName="username"
                     />
-                    <div
-                        class="pt-1 text-sm text-red-500"
-                        *ngIf="
-                            (loginFormControls['username'].touched ||
-                                submitted) &&
-                            loginFormControls['username'].invalid
-                        "
-                    >
-                        <label
-                            *ngIf="
-                                loginFormControls['username'].errors?.[
-                                    'required'
-                                ]
-                            "
-                            >username is required </label
-                        ><label
-                            *ngIf="
-                                loginFormControls['username'].errors?.[
-                                    'noWhitespace'
-                                ] &&
-                                !loginFormControls['username'].errors?.[
-                                    'required'
-                                ]
-                            "
-                            >username should not be empty</label
-                        >
-                    </div>
+                    <span class="text-sm text-red-500">
+                        <app-validation-error
+                            [control]="loginFormControls['username']"
+                            [validationMessages]="validationMessages.username"
+                        ></app-validation-error
+                    ></span>
                 </div>
                 <div>
                     <label for="password" class="mb-2 block text-sm font-medium"
@@ -91,41 +70,12 @@
                         class="block w-full rounded-lg border border-primary bg-base-100 p-2.5 focus:border-primary focus:ring-primary sm:text-sm"
                         formControlName="password"
                     />
-                    <div
-                        class="pt-1 text-sm text-red-500"
-                        *ngIf="
-                            (loginFormControls['password'].touched ||
-                                submitted) &&
-                            loginFormControls['password'].invalid
-                        "
-                    >
-                        <label
-                            *ngIf="
-                                loginFormControls['password'].errors?.[
-                                    'required'
-                                ]
-                            "
-                            >password is required </label
-                        ><label
-                            *ngIf="
-                                loginFormControls['password'].errors?.[
-                                    'noSpaceValidator'
-                                ]
-                            "
-                            >password will not contain spaces</label
-                        >
-                        <label
-                            *ngIf="
-                                loginFormControls['password'].errors?.[
-                                    'minlength'
-                                ] &&
-                                !loginFormControls['password'].errors?.[
-                                    'noSpaceValidator'
-                                ]
-                            "
-                            >password will contain atleast 6 characters</label
-                        >
-                    </div>
+                    <span class="text-sm text-red-500">
+                        <app-validation-error
+                            [control]="loginFormControls['password']"
+                            [validationMessages]="validationMessages.password"
+                        ></app-validation-error>
+                    </span>
                 </div>
 
                 <button type="submit" class="btn btn-primary w-full">

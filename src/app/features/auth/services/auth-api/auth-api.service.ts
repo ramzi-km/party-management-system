@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core'
     providedIn: 'root',
 })
 export class AuthApiService {
-
     constructor(private http: HttpClient) {}
 
     userLogin(data: { username: string; password: string }) {
