@@ -1,3 +1,4 @@
+import { AuthStateService } from './../services/auth-state/auth-state.service'
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Injectable } from '@angular/core'
 import {
@@ -14,7 +15,10 @@ import { Router } from '@angular/router'
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
-    constructor(private router: Router) {}
+    constructor(
+        private router: Router,
+        private authStateService: AuthStateService
+    ) {}
 
     intercept(
         request: HttpRequest<unknown>,
@@ -23,7 +27,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         const apiUrl = environment.API_URL
 
         // Get authorization token from local storage
-        const token = localStorage.getItem('userToken')
+        const token = this.authStateService.getAuthState().userToken
         const authHeaders = new HttpHeaders({
             Authorization: `Token ${token}`,
         })
@@ -46,11 +50,12 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                 // Handle specific error codes or types if needed
                 if (errResponse.status === 401) {
                     // Handle unauthorized errors (e.g., redirect to login)
+                    // this.router.navigate(['/login'])
                 } else if (errResponse.status === 404) {
                     // Handle not found errors (e.g., display a message)
                 }
-                console.log(errResponse.error)
 
+                console.log(errResponse.error)
                 // Return an observable with a user-facing error message
                 return throwError(() => errResponse.error)
             })

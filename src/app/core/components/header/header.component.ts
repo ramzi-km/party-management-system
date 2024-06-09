@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { AuthStateService } from '../../services/auth-state/auth-state.service'
 
 @Component({
     selector: 'app-header',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core'
 })
 export class HeaderComponent implements OnInit {
     theme = 'light'
+    authState$ = this.authStateService.authState$
+
+    constructor(private authStateService: AuthStateService) {}
 
     ngOnInit(): void {
         const localStorageTheme = localStorage.getItem('theme')

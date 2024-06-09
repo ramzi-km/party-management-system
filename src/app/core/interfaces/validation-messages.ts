@@ -1,3 +1,3 @@
 export interface ValidationMessages {
-    [key: string]: string 
+    [key: string]: string
 }

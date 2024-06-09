@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { NgIconsModule } from '@ng-icons/core'
-import { remixCloseLine } from '@ng-icons/remixicon'
+import { remixCloseLine, remixErrorWarningLine } from '@ng-icons/remixicon'
 import { ValidationPipe } from './pipes/validation.pipe'
 import { ValidationErrorComponent } from './components/validation-error/validation-error.component'
 
@@ -12,7 +12,7 @@ import { ValidationErrorComponent } from './components/validation-error/validati
         CommonModule,
         ReactiveFormsModule,
         FormsModule,
-        NgIconsModule.withIcons({ remixCloseLine }),
+        NgIconsModule.withIcons({ remixCloseLine,remixErrorWarningLine }),
     ],
     exports: [
         ReactiveFormsModule,

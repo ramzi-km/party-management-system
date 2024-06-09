@@ -3,7 +3,11 @@ import { CommonModule } from '@angular/common'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ToastrModule } from 'ngx-toastr'
 import { NgIconsModule } from '@ng-icons/core'
-import { remixLogoutBoxLine } from '@ng-icons/remixicon'
+import {
+    remixLogoutBoxLine,
+    remixMoonFill,
+    remixSunFill,
+} from '@ng-icons/remixicon'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor'
@@ -17,7 +21,11 @@ import { FooterComponent } from './components/footer/footer.component'
         CommonModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        NgIconsModule.withIcons({ remixLogoutBoxLine }),
+        NgIconsModule.withIcons({
+            remixLogoutBoxLine,
+            remixSunFill,
+            remixMoonFill,
+        }),
         ToastrModule.forRoot(),
     ],
     providers: [

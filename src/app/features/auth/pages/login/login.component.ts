@@ -13,7 +13,6 @@ import { Router } from '@angular/router'
     styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnDestroy, OnInit {
-
     private ngUnsubscribe = new Subject<void>()
 
     loginForm!: FormGroup
@@ -67,8 +66,15 @@ export class LoginComponent implements OnDestroy, OnInit {
                 next: (res) => {
                     this.errMessage = null
                     this.loading = false
-                    this.authStateService.setLoggedIn(true)
-                    this.authStateService.setUserToken(res.token)
+                    this.authStateService.setAuthState({
+                        userToken: res.token,
+                        isLoggedIn: true,
+                    })
+                    this.authStateService.setUserData({
+                        username: 'sample',
+                        password: 'password',
+                    })
+                    localStorage.setItem('userToken', res.token)
                     this.router.navigate(['/'])
                 },
                 error: (err) => {
