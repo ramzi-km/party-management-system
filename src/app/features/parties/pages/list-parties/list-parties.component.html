@@ -1,2 +1,112 @@
-<p>list-parties works!</p>
+<main class="px-28 py-20">
+    <section class="overflow-x-auto">
+        <table class="table table-zebra">
+            <thead class="bg-black text-sm text-white">
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Email</th>
+                    <th>Contact No</th>
+                    <th>GSTIN</th>
+                    <th>PAN</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="partiesLoading">
+                    <td colSpan="9" class="h-40">
+                        <app-loading-screen [iconWidth]="20" />
+                    </td>
+                </tr>
+                <tr *ngIf="!parties[0] && !partiesLoading">
+                    <td
+                        colSpan="9"
+                        class="h-20 text-center text-xl font-semibold"
+                    >
+                        No parties to show
+                    </td>
+                </tr>
+                <tr *ngFor="let party of parties; let partyIndex = index">
+                    <th>{{ partyIndex + 1 }}</th>
+                    <td>
+                        <div class="flex items-center gap-3">
+                            <div class="avatar">
+                                <div class="mask mask-squircle h-12 w-12">
+                                    <img
+                                        [src]="apiUrl + '/' + party.image"
+                                        alt="Avatar Tailwind CSS Component"
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="font-bold">
+                                    {{ party.name }}
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        {{ party.company_name }}
+                    </td>
+                    <td>{{ party.email }}</td>
+                    <th>{{ party.mobile_no }}</th>
+                    <th>{{ party.gstin }}</th>
+                    <th>{{ party.pan_no }}</th>
+                    <th>
+                        <span
+                            class="rounded-full p-1 text-xs text-white"
+                            [ngClass]="
+                                party.is_active ? 'bg-success' : 'bg-error'
+                            "
+                            >{{ party.is_active ? 'Active' : 'Inactive' }}</span
+                        >
+                    </th>
+                    <th>
+                        <div class="flex items-center justify-center space-x-2">
+                            <div class="tooltip" data-tip="view">
+                                <button
+                                    class="btn btn-outline btn-neutral btn-xs flex items-center justify-center"
+                                >
+                                    <ng-icon name="remixEyeFill"></ng-icon>
+                                </button>
+                            </div>
+                            <div class="tooltip" data-tip="edit">
+                                <button
+                                    class="btn btn-outline btn-info btn-xs flex items-center justify-center"
+                                >
+                                    <ng-icon name="remixPencilFill"></ng-icon>
+                                </button>
+                            </div>
 
+                            <div class="tooltip" data-tip="delete">
+                                <button
+                                    class="btn btn-outline btn-error btn-xs flex items-center justify-center"
+                                >
+                                    <ng-icon
+                                        name="remixDeleteBinFill"
+                                    ></ng-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </tbody>
+
+            <tfoot class="bg-base-300 text-sm">
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Email</th>
+                    <th>Contact No</th>
+                    <th>GSTIN</th>
+                    <th>PAN</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+</main>

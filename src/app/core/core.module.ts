@@ -14,7 +14,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor'
 
 import { HeaderComponent } from './components/header/header.component'
-import { FooterComponent } from './components/footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component'
 import { LogoutModalComponent } from './components/logout-modal/logout-modal.component'
 
 @NgModule({
