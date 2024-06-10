@@ -12,7 +12,10 @@
                 Login to your account
             </h1>
             <div *ngIf="errMessage" class="alert alert-error relative my-2">
-                <ng-icon class="text-2xl" name="remixErrorWarningLine"></ng-icon>
+                <ng-icon
+                    class="text-2xl"
+                    name="remixErrorWarningLine"
+                ></ng-icon>
                 <span>{{ errMessage }}</span>
                 <button
                     type="button"

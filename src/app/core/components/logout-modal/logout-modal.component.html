@@ -1,0 +1,36 @@
+<dialog id="logoutModal" class="modal">
+    <div class="modal-box w-5/6 max-w-sm bg-base-100 p-4 md:h-auto">
+        <!-- Modal content -->
+        <div class="relative p-4 text-center sm:p-5">
+            <button
+                (click)="closeLogoutModal()"
+                type="button"
+                class="btn btn-ghost btn-xs absolute right-1 top-1 ml-auto"
+            >
+                <ng-icon class="text-xl" name="remixCloseLine"></ng-icon>
+            </button>
+            <ng-icon class="text-5xl" name="remixLogoutBoxLine"></ng-icon>
+            <p class="text-textp mb-4">Are you sure you want to logout ?</p>
+            <div class="flex items-center justify-center space-x-4">
+                <button
+                    (click)="closeLogoutModal()"
+                    type="button"
+                    class="btn btn-outline btn-success btn-sm"
+                >
+                    No, cancel
+                </button>
+                <button
+                    (click)="logout()"
+                    type="submit"
+                    class="btn btn-error btn-sm bg-red-600 text-white"
+                >
+                    Yes, I'm sure
+                    <span
+                        *ngIf="logoutLoading"
+                        class="loading loading-spinner loading-sm ml-2 text-white"
+                    ></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</dialog>

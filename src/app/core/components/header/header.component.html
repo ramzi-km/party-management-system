@@ -1,3 +1,5 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <header class="navbar fixed top-0 z-40 bg-neutral shadow-md sm:px-4 md:px-8">
     <div class="flex-1">
         <a
@@ -55,11 +57,11 @@
                 </div>
             </div>
             <ul
-                tabindex="0"
+                tabindex="1"
                 class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-200 p-2 text-base-content shadow"
             >
                 <li>
-                    <a
+                    <a (click)="showLogoutModal()"
                         ><ng-icon
                             class="text-2xl"
                             name="remixLogoutBoxLine"
@@ -71,3 +73,6 @@
         </div>
     </div>
 </header>
+
+<!-------------------- logout-modal  --------------------->
+<app-logout-modal></app-logout-modal>

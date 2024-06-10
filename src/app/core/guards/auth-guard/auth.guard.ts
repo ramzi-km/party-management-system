@@ -35,13 +35,16 @@ export const authGuard: CanActivateFn = (route, state) => {
                     )
                     .pipe(
                         map((res) => {
+                            authStateService.setLoggedIn(true)
+                            authStateService.setUserData({
+                                username: 'sample',
+                                password: 'password',
+                            })
                             console.log(res)
                             return true
                         }),
                         catchError((error) => {
                             if (error.msg) {
-                           
-
                                 authStateService.setLoggedIn(true)
                                 authStateService.setUserData({
                                     username: 'sample',

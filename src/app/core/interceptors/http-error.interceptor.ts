@@ -50,7 +50,15 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                 // Handle specific error codes or types if needed
                 if (errResponse.status === 401) {
                     // Handle unauthorized errors (e.g., redirect to login)
-                    // this.router.navigate(['/login'])
+                    this.authStateService.setAuthState({
+                        userToken: null,
+                        isLoggedIn: false,
+                    })
+                    this.authStateService.setUserData({
+                        username: 'guest',
+                        password: 'guest',
+                    })
+                    this.router.navigate(['/login'])
                 } else if (errResponse.status === 404) {
                     // Handle not found errors (e.g., display a message)
                 }

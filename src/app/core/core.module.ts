@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ToastrModule } from 'ngx-toastr'
 import { NgIconsModule } from '@ng-icons/core'
 import {
+    remixCloseLine,
     remixLogoutBoxLine,
     remixMoonFill,
     remixSunFill,
@@ -13,10 +14,11 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor'
 
 import { HeaderComponent } from './components/header/header.component'
-import { FooterComponent } from './components/footer/footer.component'
+import { FooterComponent } from './components/footer/footer.component';
+import { LogoutModalComponent } from './components/logout-modal/logout-modal.component'
 
 @NgModule({
-    declarations: [HeaderComponent, FooterComponent],
+    declarations: [HeaderComponent, FooterComponent, LogoutModalComponent],
     imports: [
         CommonModule,
         BrowserAnimationsModule,
@@ -25,6 +27,7 @@ import { FooterComponent } from './components/footer/footer.component'
             remixLogoutBoxLine,
             remixSunFill,
             remixMoonFill,
+            remixCloseLine,
         }),
         ToastrModule.forRoot(),
     ],

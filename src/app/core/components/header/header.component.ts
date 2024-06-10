@@ -9,6 +9,7 @@ import { AuthStateService } from '../../services/auth-state/auth-state.service'
 export class HeaderComponent implements OnInit {
     theme = 'light'
     authState$ = this.authStateService.authState$
+    logoutLoading = false
 
     constructor(private authStateService: AuthStateService) {}
 
@@ -17,6 +18,13 @@ export class HeaderComponent implements OnInit {
         if (localStorageTheme) {
             this.theme = localStorageTheme
         }
+    }
+
+    showLogoutModal() {
+        const logoutModal = document.getElementById(
+            'logoutModal'
+        ) as HTMLDialogElement
+        logoutModal.showModal()
     }
 
     toggleDarkMode() {
