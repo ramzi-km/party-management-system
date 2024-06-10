@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { NgIconsModule } from '@ng-icons/core'
 import {
+    remixAddFill,
     remixCloseLine,
     remixDeleteBinFill,
     remixErrorWarningLine,
@@ -29,6 +30,7 @@ import { LoadingScreenComponent } from './components/loading-screen/loading-scre
             remixPencilFill,
             remixDeleteBinFill,
             remixEyeFill,
+            remixAddFill,
         }),
     ],
     exports: [
