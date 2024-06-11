@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Subject, takeUntil } from 'rxjs'
-import { IParty } from 'src/app/core/interfaces/party'
+import { IParty } from 'src/app/core/interfaces/party.interface'
 import { PartyService } from '../../services/party/party.service'
 import { environment } from 'src/environments/environment'
 
@@ -33,6 +33,13 @@ export class ListPartiesComponent implements OnInit, OnDestroy {
                     this.partiesLoading = false
                 },
             })
+    }
+
+    showAddPartyModal() {
+        const addPartyModal = document.getElementById(
+            'add-party-modal'
+        ) as HTMLDialogElement
+        addPartyModal.showModal()
     }
 
     ngOnDestroy(): void {

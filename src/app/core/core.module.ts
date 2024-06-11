@@ -16,9 +16,15 @@ import { HttpErrorInterceptor } from './interceptors/http-error.interceptor'
 import { HeaderComponent } from './components/header/header.component'
 import { FooterComponent } from './components/footer/footer.component'
 import { LogoutModalComponent } from './components/logout-modal/logout-modal.component'
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component'
 
 @NgModule({
-    declarations: [HeaderComponent, FooterComponent, LogoutModalComponent],
+    declarations: [
+        HeaderComponent,
+        FooterComponent,
+        LogoutModalComponent,
+        NotFoundPageComponent,
+    ],
     imports: [
         CommonModule,
         BrowserAnimationsModule,
@@ -43,6 +49,7 @@ import { LogoutModalComponent } from './components/logout-modal/logout-modal.com
         FooterComponent,
         ReactiveFormsModule,
         FormsModule,
+        NotFoundPageComponent,
     ],
 })
 export class CoreModule {}

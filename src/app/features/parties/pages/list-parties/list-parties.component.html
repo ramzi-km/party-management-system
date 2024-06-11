@@ -1,10 +1,14 @@
 <main class="px-28 py-20">
     <h1 class="mb-6 text-center text-3xl font-semibold">Party Management</h1>
     <div class="my-3 flex w-full justify-end">
-        <button class="btn btn-success ml-auto">
+        <button (click)="showAddPartyModal()" class="btn btn-primary ml-auto">
             <ng-icon class="mb-1 text-xl" name="remixAddFill"></ng-icon>Add
             Party
         </button>
+
+        <!-- add party modal  -->
+        <app-add-party-modal></app-add-party-modal>
+        <!-- ---------------  -->
     </div>
     <section class="overflow-x-auto">
         <table class="table table-zebra">
@@ -63,9 +67,11 @@
                     <th>{{ party.pan_no }}</th>
                     <th>
                         <span
-                            class="rounded-full p-1 text-xs text-white"
+                            class="badge font-medium text-white"
                             [ngClass]="
-                                party.is_active ? 'bg-success' : 'bg-error'
+                                party.is_active
+                                    ? 'badge-success'
+                                    : 'badge-error'
                             "
                             >{{ party.is_active ? 'Active' : 'Inactive' }}</span
                         >
@@ -74,6 +80,7 @@
                         <div class="flex items-center justify-center space-x-2">
                             <div class="tooltip" data-tip="view">
                                 <button
+                                    routerLink="{{ party.id }}"
                                     class="btn btn-outline btn-neutral btn-xs flex items-center justify-center"
                                 >
                                     <ng-icon name="remixEyeFill"></ng-icon>

@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core'
 import { BehaviorSubject, Observable } from 'rxjs'
-import { AuthState } from '../../interfaces/auth-state.interface'
+import { IAuthState } from './../../interfaces/auth-state.interface'
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthStateService {
-    private subject = new BehaviorSubject<AuthState>({
+    private subject = new BehaviorSubject<IAuthState>({
         userToken: null,
         isLoggedIn: false,
     })
     private loadingSubject = new BehaviorSubject<boolean>(false)
 
-    authState$: Observable<AuthState>
+    authState$: Observable<IAuthState>
     authStateLoading$: Observable<boolean>
 
     constructor() {
@@ -45,12 +45,12 @@ export class AuthStateService {
         this.subject.next({ ...this.subject.getValue(), userData })
     }
 
-    setAuthState(authState: AuthState) {
+    setAuthState(authState: IAuthState) {
         this.subject.next(authState)
     }
 
     // Getter for the current authentication state
-    getAuthState(): AuthState {
+    getAuthState(): IAuthState {
         return this.subject.getValue()
     }
     getLoading(): boolean {

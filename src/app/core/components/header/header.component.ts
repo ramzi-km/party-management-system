@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { AuthStateService } from '../../services/auth-state/auth-state.service'
+import { Router } from '@angular/router'
 
 @Component({
     selector: 'app-header',
@@ -11,7 +12,10 @@ export class HeaderComponent implements OnInit {
     authState$ = this.authStateService.authState$
     logoutLoading = false
 
-    constructor(private authStateService: AuthStateService) {}
+    constructor(
+        private authStateService: AuthStateService,
+        private router: Router
+    ) {}
 
     ngOnInit(): void {
         const localStorageTheme = localStorage.getItem('theme')
@@ -25,6 +29,10 @@ export class HeaderComponent implements OnInit {
             'logoutModal'
         ) as HTMLDialogElement
         logoutModal.showModal()
+    }
+
+    navigateTo(url: string) {
+        this.router.navigate([url])
     }
 
     toggleDarkMode() {

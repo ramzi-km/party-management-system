@@ -1,10 +1,10 @@
+import { IValidationMessages } from './../../../core/interfaces/validation-messages.interface';
 import { Component, Input } from '@angular/core'
 import {
     FormControl,
     AbstractControl,
     FormGroupDirective,
 } from '@angular/forms'
-import { ValidationMessages } from 'src/app/core/interfaces/validation-messages'
 
 @Component({
     selector: 'app-validation-error',
@@ -13,7 +13,7 @@ import { ValidationMessages } from 'src/app/core/interfaces/validation-messages'
 })
 export class ValidationErrorComponent {
     @Input() control: FormControl | AbstractControl | undefined
-    @Input() validationMessages: ValidationMessages | undefined
+    @Input() validationMessages: IValidationMessages | undefined
 
     constructor(public formDirective: FormGroupDirective) {}
 }

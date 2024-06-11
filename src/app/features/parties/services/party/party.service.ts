@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { IParty } from 'src/app/core/interfaces/party'
+import { IParty } from 'src/app/core/interfaces/party.interface'
 
 @Injectable()
 export class PartyService {

@@ -1,0 +1,98 @@
+<!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
+<dialog id="add-party-modal" class="modal">
+    <form class="text-textp modal-box max-w-max bg-base-200" noValidate>
+        <div class="my-4 text-center text-2xl font-semibold">
+            <p>Add Party</p>
+        </div>
+        <button
+            (click)="closeAddPartyModal()"
+            type="button"
+            class="btn btn-circle btn-ghost btn-sm absolute right-4 top-4 text-2xl"
+        >
+            <ng-icon name="remixCloseLine"></ng-icon>
+        </button>
+
+        <div class="alert alert-error mt-3 flex h-10">
+            <ng-icon class="text-xl" name="remixErrorWarningLine"></ng-icon>
+            <span>errMessage</span>
+        </div>
+
+        <div class="flex flex-col md:flex-row md:space-x-3">
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">First name</span>
+                </label>
+                <input
+                    type="text"
+                    placeholder="eg:John"
+                    class="input input-bordered"
+                />
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Last name</span>
+                </label>
+                <input
+                    type="text"
+                    placeholder="e.g:Doe"
+                    class="input input-bordered"
+                />
+            </div>
+        </div>
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Email id</span>
+            </label>
+            <input
+                type="email"
+                placeholder="eg:john@gmail.com"
+                class="input input-bordered"
+            />
+        </div>
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Department</span>
+            </label>
+            <select class="select select-bordered">
+                <option disabled value="">Department</option>
+                <option value="accounts">Account & finance</option>
+                <option value="hr">Human resources</option>
+                <option value="ui">UI/UX</option>
+                <option value="dev">Software development</option>
+                <option value="sales">Sales and marketing</option>
+            </select>
+        </div>
+        <div class="flex flex-col md:flex-row md:space-x-3">
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Employee code</span>
+                </label>
+                <input
+                    type="text"
+                    placeholder="eg: emp124"
+                    class="input input-bordered"
+                />
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Contact No</span>
+                </label>
+                <input
+                    type="tel"
+                    placeholder="+91 :"
+                    class="input input-bordered"
+                />
+            </div>
+        </div>
+
+        <div class="form-control mt-6">
+            <button type="submit" class="btn btn-secondary">
+                Submit
+
+                <span
+                    class="loading loading-spinner loading-sm mb-1 ml-5"
+                ></span>
+            </button>
+        </div>
+    </form>
+</dialog>

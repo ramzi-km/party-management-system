@@ -1,0 +1,7 @@
+.tab:is(.tab-active, [aria-selected='true']):not(.tab-disabled):not([disabled]),
+.tab:is(input:checked) {
+    border-color: oklch(var(--p));
+    color: oklch(var(--p));
+    --tw-border-opacity: 1;
+    --tw-text-opacity: 1;
+}
