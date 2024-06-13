@@ -13,5 +13,4 @@ export class PartyService {
     getPartyById(partyId: string) {
         return this.http.get<IParty>(`${this.baseUrl}?id=${partyId}`)
     }
-    
 }

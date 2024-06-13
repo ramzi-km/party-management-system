@@ -11,5 +11,4 @@ export class GeneralDetailsComponent {
     @Input() party!: IParty
 
     apiUrl = environment.API_URL
-    
 }
