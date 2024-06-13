@@ -2,18 +2,25 @@
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
 <main
-    class="container mx-auto -mt-10 flex min-h-screen flex-col bg-base-200 px-48 py-20"
+    class="-mt-10 flex min-h-screen flex-col bg-base-200 px-4 py-10 sm:px-6 sm:py-16 md:px-16 md:py-20 lg:px-24 xl:px-40"
 >
     <div class="flex items-center justify-between p-3">
-        <h1 class="text-4xl font-semibold">Party Information</h1>
+        <h1 class="text-2xl font-semibold md:text-3xl lg:text-4xl">
+            Party Information
+        </h1>
         <button routerLink="../" class="btn btn-secondary btn-sm">
             <ng-icon class="-mt-1 text-lg" name="remixArrowLeftLine"></ng-icon
             >Back
         </button>
     </div>
 
-    <section class="w-full flex-1 rounded-lg bg-base-100 px-6 py-3 shadow-sm">
-        <div role="tablist" class="tabs tabs-bordered tabs-lg font-medium">
+    <section
+        class="w-full flex-1 rounded-lg bg-base-100 px-2 py-3 shadow-sm sm:px-4 md:px-6"
+    >
+        <div
+            role="tablist"
+            class="md:text-md tabs tabs-bordered tabs-xs text-sm font-medium sm:tabs-md md:tabs-md"
+        >
             <a
                 (click)="changeTab('general')"
                 role="tab"
@@ -43,7 +50,7 @@
                 >Addresses</a
             >
         </div>
-        <div class="p-8">
+        <div class="p-2 py-4 sm:p-4 md:p-6 lg:p-8">
             <div class="h-96 w-full" *ngIf="fetchingParty">
                 <app-loading-screen></app-loading-screen>
             </div>

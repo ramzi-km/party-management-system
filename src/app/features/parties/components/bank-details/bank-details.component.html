@@ -1,18 +1,20 @@
 <!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
-<div *ngIf="!banks[0]" class="flex h-20 items-center justify-center">
+<div *ngIf="!bankss[0]" class="flex h-20 items-center justify-center">
     <h1 class="text-2xl font-semibold">No banks to show</h1>
 </div>
 <div
-    *ngFor="let bank of banks"
+    *ngFor="let bank of bankss"
     class="collapse collapse-arrow my-3 bg-base-200"
 >
     <input type="checkbox" />
-    <div class="collapse-title text-xl font-medium">
+    <div class="collapse-title font-medium sm:text-xl">
         <ng-icon class="-mb-1 mr-1 text-xl" name="remixBankFill"></ng-icon>
         {{ bank.bank_name | uppercase }}
     </div>
     <div class="collapse-content">
-        <div class="grid grid-cols-3 gap-4">
+        <div
+            class="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3 xl:grid-cols-3 lg:gap-4"
+        >
             <label class="input input-bordered flex items-center gap-2">
                 <span class="text-nowrap font-medium text-gray-400">
                     <ng-icon
