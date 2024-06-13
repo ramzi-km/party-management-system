@@ -1,7 +1,12 @@
-<main class="px-28 py-20">
-    <h1 class="mb-6 text-center text-3xl font-semibold">Party Management</h1>
+<main class="px-6 py-10 md:px-16 lg:px-28 lg:py-20">
+    <h1 class="mb-6 text-center text-2xl font-semibold sm:text-3xl">
+        Party Management
+    </h1>
     <div class="my-3 flex w-full justify-end">
-        <button (click)="showAddPartyModal()" class="btn btn-primary ml-auto">
+        <button
+            (click)="showAddPartyModal()"
+            class="btn btn-primary btn-sm ml-auto md:btn-md"
+        >
             <ng-icon class="mb-1 text-xl" name="remixAddFill"></ng-icon>Add
             Party
         </button>
@@ -27,7 +32,7 @@
             </thead>
             <tbody>
                 <tr *ngIf="partiesLoading">
-                    <td colSpan="9" class="h-40">
+                    <td colspan="9" class="h-40">
                         <app-loading-screen [iconWidth]="20" />
                     </td>
                 </tr>
@@ -47,7 +52,7 @@
                                 <div class="mask mask-squircle h-12 w-12">
                                     <img
                                         [src]="apiUrl + '/' + party.image"
-                                        alt="Avatar Tailwind CSS Component"
+                                        alt="Party image"
                                     />
                                 </div>
                             </div>
