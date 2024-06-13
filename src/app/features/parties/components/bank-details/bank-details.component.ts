@@ -8,5 +8,4 @@ import { IBank } from './../../../../core/interfaces/bank.interface'
 })
 export class BankDetailsComponent {
     @Input() banks!: IBank[]
-
 }
