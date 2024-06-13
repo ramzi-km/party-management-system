@@ -1,9 +1,9 @@
 <!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
-<div *ngIf="!bankss[0]" class="flex h-20 items-center justify-center">
+<div *ngIf="!banks[0]" class="flex h-20 items-center justify-center">
     <h1 class="text-2xl font-semibold">No banks to show</h1>
 </div>
 <div
-    *ngFor="let bank of bankss"
+    *ngFor="let bank of banks"
     class="collapse collapse-arrow my-3 bg-base-200"
 >
     <input type="checkbox" />
@@ -13,7 +13,7 @@
     </div>
     <div class="collapse-content">
         <div
-            class="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3 xl:grid-cols-3 lg:gap-4"
+            class="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3 lg:gap-4 xl:grid-cols-3"
         >
             <label class="input input-bordered flex items-center gap-2">
                 <span class="text-nowrap font-medium text-gray-400">

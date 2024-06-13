@@ -1,9 +1,9 @@
 <!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
-<div *ngIf="!addressess[0]" class="flex h-20 items-center justify-center">
+<div *ngIf="!addresses[0]" class="flex h-20 items-center justify-center">
     <h1 class="text-2xl font-semibold">No address to show</h1>
 </div>
 <div
-    *ngFor="let address of addressess; let addressIndex = index"
+    *ngFor="let address of addresses; let addressIndex = index"
     class="collapse collapse-arrow my-3 bg-base-200"
 >
     <input type="checkbox" />
