@@ -1,4 +1,4 @@
-import { IValidationMessages } from './../../../core/interfaces/validation-messages.interface';
+import { IValidationMessages } from './../../../core/interfaces/validation-messages.interface'
 import { Component, Input } from '@angular/core'
 import {
     FormControl,

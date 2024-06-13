@@ -1,0 +1,130 @@
+<!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
+<div class="grid grid-cols-4 gap-4">
+    <label class="input input-bordered flex items-center gap-2">
+        <span class="text-nowrap font-medium text-gray-400"> Name : </span>
+
+        <span class="line-clamp-2 grow break-words">{{ party.name }}</span>
+    </label>
+    <label class="input input-bordered flex items-center gap-2">
+        <span class="text-nowrap font-medium text-gray-400">
+            <ng-icon class="-mb-1 text-xl" name="remixBuildingFill"></ng-icon>
+            Company :
+        </span>
+
+        <span class="line-clamp-2 grow break-words">{{
+            party.company_name
+        }}</span>
+    </label>
+    <div class="col-span-2 row-span-3 h-44 w-full px-20">
+        <img
+            class="h-full w-full rounded-lg object-cover"
+            [src]="apiUrl + '/' + party.image"
+            alt=""
+        />
+    </div>
+    <label class="input input-bordered flex items-center gap-2">
+        <span class="text-nowrap font-medium text-gray-400">
+            <ng-icon class="-mb-1 text-xl" name="remixMailFill"></ng-icon>
+            Email :
+        </span>
+
+        <span class="line-clamp-2 grow break-words">{{ party.email }}</span>
+    </label>
+    <label class="input input-bordered flex items-center gap-2">
+        <span class="text-nowrap font-medium text-gray-400">
+            <ng-icon class="-mb-1 text-xl" name="remixFileTextFill"></ng-icon>
+            GSTIN :
+        </span>
+
+        <span class="line-clamp-2 grow break-words">{{ party.gstin }}</span>
+    </label>
+    <label class="input input-bordered flex items-center gap-2">
+        <span class="text-nowrap font-medium text-gray-400">
+            <ng-icon class="-mb-1 text-xl" name="remixBankCard2Fill"></ng-icon>
+            PAN :
+        </span>
+
+        <span class="line-clamp-2 grow break-words">{{ party.pan_no }}</span>
+    </label>
+    <label class="input input-bordered flex items-center gap-2">
+        <span class="text-nowrap font-medium text-gray-400">
+            <ng-icon class="-mb-1 text-xl" name="remixSmartphoneFill"></ng-icon>
+            Mobile :
+        </span>
+
+        <span class="line-clamp-2 grow break-words">{{ party.mobile_no }}</span>
+    </label>
+    <label class="input input-bordered flex items-center gap-2">
+        <span class="text-nowrap font-medium text-gray-400">
+            <ng-icon class="-mb-1 text-xl" name="remixWhatsappFill"></ng-icon>
+            Whatsapp :
+        </span>
+
+        <span class="line-clamp-2 grow break-words">{{
+            party.whatsapp_no
+        }}</span>
+    </label>
+    <label class="input input-bordered flex items-center gap-2">
+        <span class="text-nowrap font-medium text-gray-400">
+            <ng-icon class="-mb-1 text-xl" name="remixPhoneFill"></ng-icon>
+            Telephone :
+        </span>
+
+        <span class="line-clamp-2 grow break-words">{{
+            party.telephone_no
+        }}</span>
+    </label>
+    <label class="input input-bordered flex items-center gap-2">
+        <span class="text-nowrap font-medium text-gray-400">
+            <ng-icon
+                class="-mb-1 text-xl"
+                name="remixCalendarEventFill"
+            ></ng-icon>
+            DOB :
+        </span>
+
+        <span class="line-clamp-2 grow break-words">{{
+            party.date_of_birth | date
+        }}</span>
+    </label>
+    <label class="input input-bordered flex items-center gap-2">
+        <span class="text-nowrap font-medium text-gray-400">
+            <ng-icon class="-mb-1 text-xl" name="remixCalendar2Fill"></ng-icon>
+            Anniversary :
+        </span>
+
+        <span class="line-clamp-2 grow break-words">{{
+            party.anniversary_date 
+        }}</span>
+    </label>
+    <label class="input input-bordered flex items-center gap-2">
+        <span class="text-nowrap font-medium text-gray-400">
+            <ng-icon
+                class="-mb-1 text-xl"
+                name="remixMoneyDollarCircleFill"
+            ></ng-icon>
+            Credit limit :
+        </span>
+
+        <span class="line-clamp-2 grow break-words">{{
+            party.credit_limit
+        }}</span>
+    </label>
+    <label class="input input-bordered flex items-center gap-2">
+        <span class="text-nowrap font-medium text-gray-400"> Status : </span>
+
+        <span
+            class="badge grow"
+            [ngClass]="party.is_active ? 'badge-success' : 'badge-error'"
+        >
+            {{ party.is_active ? 'Active' : 'Inactive' }}</span
+        >
+    </label>
+    <label class="textarea textarea-bordered col-span-2 row-auto break-words" u>
+        <span class="text-nowrap font-medium text-gray-400">
+            <ng-icon class="-mb-1 text-xl" name="remixPushpinFill"></ng-icon>
+            Remarks :
+        </span>
+        <span class="grow break-words">{{ party.remark }}</span>
+    </label>
+</div>

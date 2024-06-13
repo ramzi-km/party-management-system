@@ -1,51 +1,68 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
 <main
-    class="container mx-auto -mt-10 flex min-h-screen flex-col bg-base-200 px-48 py-24"
+    class="container mx-auto -mt-10 flex min-h-screen flex-col bg-base-200 px-48 py-20"
 >
-    <h1 class="p-3 text-4xl font-semibold">Party Information</h1>
+    <div class="flex items-center justify-between p-3">
+        <h1 class="text-4xl font-semibold">Party Information</h1>
+        <button routerLink="../" class="btn btn-secondary btn-sm">
+            <ng-icon class="-mt-1 text-lg" name="remixArrowLeftLine"></ng-icon
+            >Back
+        </button>
+    </div>
+
     <section class="w-full flex-1 rounded-lg bg-base-100 px-6 py-3 shadow-sm">
         <div role="tablist" class="tabs tabs-bordered tabs-lg font-medium">
-            <a role="tab" class="tab tab-active font-medium text-gray-400"
+            <a
+                (click)="changeTab('general')"
+                role="tab"
+                class="tab font-medium text-gray-400"
+                [ngClass]="currTab === 'general' ? 'tab-active' : ''"
                 >General</a
             >
-            <a role="tab" class="tab text-gray-400">User details</a>
-            <a role="tab" class="tab text-gray-400">Bank details</a>
-            <a role="tab" class="tab text-gray-400">Addresses</a>
+            <a
+                (click)="changeTab('user')"
+                role="tab"
+                class="tab text-gray-400"
+                [ngClass]="currTab === 'user' ? 'tab-active' : ''"
+                >User details</a
+            >
+            <a
+                (click)="changeTab('bank')"
+                role="tab"
+                class="tab text-gray-400"
+                [ngClass]="currTab === 'bank' ? 'tab-active' : ''"
+                >Bank details</a
+            >
+            <a
+                (click)="changeTab('address')"
+                role="tab"
+                class="tab text-gray-400"
+                [ngClass]="currTab === 'address' ? 'tab-active' : ''"
+                >Addresses</a
+            >
         </div>
-        <div class="flex w-full justify-start space-x-3">
-            <label class="input flex items-center gap-2">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    class="h-4 w-4 opacity-70"
-                >
-                    <path
-                        d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"
-                    />
-                    <path
-                        d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
-                    />
-                </svg>
-                Name
-                <span class="grow">john doe</span>
-            </label>
-            <label class="input flex items-center gap-2">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    class="h-4 w-4 opacity-70"
-                >
-                    <path
-                        d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"
-                    />
-                    <path
-                        d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
-                    />
-                </svg>
-                <span class="grow">Email : </span>
-            </label>
+        <div class="p-8">
+            <div class="h-96 w-full" *ngIf="fetchingParty">
+                <app-loading-screen></app-loading-screen>
+            </div>
+            <app-general-details
+                *ngIf="currTab === 'general' && !fetchingParty"
+                [party]="party"
+            ></app-general-details>
+            <app-user-details
+                *ngIf="currTab === 'user' && !fetchingParty"
+                [user]="party.userid"
+            ></app-user-details>
+            <app-bank-details
+                *ngIf="currTab === 'bank' && !fetchingParty"
+                [banks]="party.bank_id"
+            ></app-bank-details>
+            <app-address-details
+                *ngIf="currTab === 'address' && !fetchingParty"
+                [addresses]="party.address"
+            ></app-address-details>
         </div>
     </section>
 </main>

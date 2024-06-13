@@ -1,0 +1,87 @@
+<!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
+<div *ngIf="!banks[0]" class="flex h-20 items-center justify-center">
+    <h1 class="text-2xl font-semibold">No banks to show</h1>
+</div>
+<div
+    *ngFor="let bank of banks"
+    class="collapse collapse-arrow my-3 bg-base-200"
+>
+    <input type="checkbox" />
+    <div class="collapse-title text-xl font-medium">
+        <ng-icon class="-mb-1 mr-1 text-xl" name="remixBankFill"></ng-icon>
+        {{ bank.bank_name | uppercase }}
+    </div>
+    <div class="collapse-content">
+        <div class="grid grid-cols-3 gap-4">
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="text-nowrap font-medium text-gray-400">
+                    <ng-icon
+                        class="-mb-1 text-xl"
+                        name="remixBankFill"
+                    ></ng-icon>
+                    Bank :
+                </span>
+
+                <span class="line-clamp-2 grow break-words">{{
+                    bank.bank_name
+                }}</span>
+            </label>
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="text-nowrap font-medium text-gray-400">
+                    <ng-icon
+                        class="-mb-1 text-xl"
+                        name="remixGitBranchFill"
+                    ></ng-icon>
+                    Branch :
+                </span>
+
+                <span class="line-clamp-2 grow break-words">{{
+                    bank.branch_name
+                }}</span>
+            </label>
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="text-nowrap font-medium text-gray-400">
+                    <ng-icon
+                        class="-mb-1 text-xl"
+                        name="remixUserFill"
+                    ></ng-icon>
+                    Account holder :
+                </span>
+
+                <span class="line-clamp-2 grow break-words">{{
+                    bank.account_holder_name
+                }}</span>
+            </label>
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="text-nowrap font-medium text-gray-400">
+                    Account No :
+                </span>
+
+                <span class="line-clamp-2 grow break-words">{{
+                    bank.account_no
+                }}</span>
+            </label>
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="text-nowrap font-medium text-gray-400">
+                    IFSC :
+                </span>
+
+                <span class="line-clamp-2 grow break-words">{{
+                    bank.bank_ifsc_code
+                }}</span>
+            </label>
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="text-nowrap font-medium text-gray-400">
+                    Status :
+                </span>
+
+                <span
+                    class="badge grow"
+                    [ngClass]="bank.is_active ? 'badge-success' : 'badge-error'"
+                >
+                    {{ bank.is_active ? 'Active' : 'Inactive' }}</span
+                >
+            </label>
+        </div>
+    </div>
+</div>

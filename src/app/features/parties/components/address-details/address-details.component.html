@@ -1,0 +1,106 @@
+<!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
+<div *ngIf="!addresses[0]" class="flex h-20 items-center justify-center">
+    <h1 class="text-2xl font-semibold">No address to show</h1>
+</div>
+<div
+    *ngFor="let address of addresses; let addressIndex = index"
+    class="collapse collapse-arrow my-3 bg-base-200"
+>
+    <input type="checkbox" />
+    <div class="collapse-title text-xl font-medium">
+        <ng-icon class="-mb-1 mr-1 text-xl" name="remixMapPinLine"></ng-icon>
+        {{ 'Address ' + (addressIndex + 1) }}
+    </div>
+    <div class="collapse-content">
+        <div class="grid grid-cols-2 gap-4">
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="text-nowrap font-medium text-gray-400">
+                    <ng-icon
+                        class="-mb-1 text-xl"
+                        name="remixMapPinLine"
+                    ></ng-icon>
+                    Address line 1 :
+                </span>
+
+                <span class="line-clamp-2 grow break-words">{{
+                    address.address_line_1
+                }}</span>
+            </label>
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="text-nowrap font-medium text-gray-400">
+                    <ng-icon
+                        class="-mb-1 text-xl"
+                        name="remixMapPinLine"
+                    ></ng-icon>
+                    Address line 2 :
+                </span>
+
+                <span class="line-clamp-2 grow break-words">{{
+                    address.address_line_2
+                }}</span>
+            </label>
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="text-nowrap font-medium text-gray-400">
+                    <ng-icon
+                        class="-mb-1 text-xl"
+                        name="remixBuilding2Fill"
+                    ></ng-icon>
+                    City :
+                </span>
+
+                <span class="line-clamp-2 grow break-words">{{
+                    address.city
+                }}</span>
+            </label>
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="text-nowrap font-medium text-gray-400">
+                    <ng-icon
+                        class="-mb-1 text-xl"
+                        name="remixGovernmentFill"
+                    ></ng-icon>
+                    State :
+                </span>
+
+                <span class="line-clamp-2 grow break-words">{{
+                    address.state
+                }}</span>
+            </label>
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="text-nowrap font-medium text-gray-400">
+                    <ng-icon
+                        class="-mb-1 text-xl"
+                        name="remixFlagFill"
+                    ></ng-icon>
+                    Country :
+                </span>
+
+                <span class="line-clamp-2 grow break-words">{{
+                    address.country
+                }}</span>
+            </label>
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="text-nowrap font-medium text-gray-400">
+                    Pincode :
+                </span>
+
+                <span class="line-clamp-2 grow break-words">{{
+                    address.pincode
+                }}</span>
+            </label>
+            <label class="input input-bordered flex items-center gap-2">
+                <span class="text-nowrap font-medium text-gray-400">
+                    Status :
+                </span>
+
+                <span
+                    class="badge grow"
+                    [ngClass]="
+                        address.is_active ? 'badge-success' : 'badge-error'
+                    "
+                >
+                    {{ address.is_active ? 'Active' : 'Inactive' }}</span
+                >
+            </label>
+        </div>
+    </div>
+</div>

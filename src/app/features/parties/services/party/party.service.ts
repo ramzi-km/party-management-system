@@ -10,4 +10,8 @@ export class PartyService {
     getAllParties() {
         return this.http.get<IParty[]>(this.baseUrl)
     }
+    getPartyById(partyId: string) {
+        return this.http.get<IParty>(`${this.baseUrl}?id=${partyId}`)
+    }
+    
 }
